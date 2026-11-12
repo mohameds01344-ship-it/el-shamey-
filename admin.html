@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>إدارة الشامي ماركت</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="admin.css"></head>
+<body>
+<header><a href="index.html">← عرض المتجر</a><h1>لوحة إدارة الشامي ماركت</h1><span>وضع تجريبي محلي</span></header>
+<main>
+  <section class="stats"><div><small>إجمالي المنتجات</small><b id="productCount">0</b></div><div><small>الأقسام</small><b id="categoryCount">0</b></div><div><small>إدارة المتجر</small><b>نشطة</b></div></section>
+  <section class="panel"><div class="panel-title"><div><small>كتالوج المتجر</small><h2>إدارة المنتجات</h2></div><button class="green" id="newProduct">＋ إضافة منتج</button></div>
+    <form id="productForm" class="form hidden">
+      <input type="hidden" id="productId"><label>اسم المنتج<input id="productName" required></label>
+      <label>القسم<select id="productCategory"></select></label><label>السعر بالجنيه<input id="productPrice" type="number" min="0" step=".01" required></label>
+      <label>الكمية المتاحة<input id="productStock" type="number" min="0" value="10"></label><label class="wide">الوصف<input id="productDescription"></label>
+      <label class="wide">رابط صورة المنتج<input id="productImage" type="url" placeholder="https://..."></label>
+      <label class="check"><input id="productFeatured" type="checkbox"> منتج مميز</label>
+      <div class="actions wide"><button class="green" type="submit">حفظ المنتج</button><button class="muted" type="button" id="cancelEdit">إلغاء</button></div>
+    </form>
+    <div class="table-wrap"><table><thead><tr><th>المنتج</th><th>القسم</th><th>السعر</th><th>المخزون</th><th>إجراءات</th></tr></thead><tbody id="productTable"></tbody></table></div>
+  </section>
+  <section class="panel"><div class="panel-title"><div><small>تنظيم المتجر</small><h2>إدارة الأقسام</h2></div></div><form id="categoryForm" class="inline-form"><input id="categoryName" placeholder="اسم القسم الجديد" required><input id="categoryIcon" placeholder="رمز تعبيري مثل 🥦" maxlength="4"><button class="green">إضافة قسم</button></form><div id="categoryChips" class="chips"></div></section>
+  <section class="panel"><div class="panel-title"><div><small>إعدادات أساسية</small><h2>بيانات الطلبات</h2></div></div><p class="notice">رقم واتساب ورسوم التوصيل يتم تعديلهما من ملف <b>config.js</b> داخل المشروع.</p><button id="exportData" class="muted">تصدير نسخة احتياطية للمنتجات والأقسام</button><button id="resetData" class="danger">استعادة بيانات البداية</button></section>
+  <p class="warning">تنبيه: هذه اللوحة تحفظ التعديلات في المتصفح الحالي فقط باستخدام LocalStorage. لتظهر التعديلات على أجهزة العملاء، يلزم ربط المشروع بقاعدة بيانات وتسجيل دخول آمن قبل النشر الفعلي.</p>
+</main><script src="config.js"></script><script src="admin.js"></script></body></html>
